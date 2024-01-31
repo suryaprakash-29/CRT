@@ -1,0 +1,81 @@
+Write a Program to delete the second last element from the list. If deletion of second last element is not possible, print "Deletion of second last element is not possible", Otherwise print the list after deleting the second last element.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+Before deleting:
+1 2 3 4
+After deleting:
+1 2 4
+Sample Input 1
+
+23
+34
+55
+12
+66
+45
+33
+-1
+Sample Output 1
+
+Before deleting:
+23 34 55 12 66 45 33
+After deleting:
+23 34 55 12 66 33
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+class list:
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,x):
+        n=Node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        if self.tail:
+            self.tail.next=n
+            self.tail=n
+    def delete(self):
+        print("Before deleting:")
+        temp=self.head
+        while temp:
+            print(temp.data,end=" ")
+            temp=temp.next
+        print()
+        print("After deleting:")
+        temp=self.head
+        while temp.next.next.next:
+            temp=temp.next
+        temp.next=temp.next.next
+        temp=self.head
+        while temp:
+            print(temp.data,end=" ")
+            temp=temp.next
+a=list()
+while True:
+    b=int(input())
+    if b==-1:
+        a.delete()
+        break
+    else:
+        a.create(b)
