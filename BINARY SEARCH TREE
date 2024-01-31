@@ -20,7 +20,8 @@ class Node:
         print(self.data,end=" ")
         if self.right:
             self.right.show()
-root=Node(40)
+a=int(input())
+root=Node(a)
 while True:
     print()
     print("1.insert 2.show 3.exit")
