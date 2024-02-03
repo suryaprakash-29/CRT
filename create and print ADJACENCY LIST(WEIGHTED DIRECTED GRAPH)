@@ -1,0 +1,39 @@
+def addnode(node):
+    if node in graph:
+        print("node already available")
+    else:
+        graph[node]=[]
+def addedge(node1,node2,w):
+    if node1 not in graph or node2 not in graph:
+        if node1 not in graph:
+            print("node1 not available")
+        if node2 not in graph:
+            print("node2 not available")
+    else:
+        temp=[]
+        temp.append(node2)
+        temp.append(w)
+        graph[node1].append(temp)
+def show():
+    for i in graph:
+        print(i,":",graph[i])
+        print()
+graph={}
+while True:
+    print()
+    print("1.addnode 2.addedge 3.show 4.exit")
+    ch=int(input("enter ur choice"))
+    if ch==1:
+        node=input("enter node")
+        addnode(node)
+    elif ch==2:
+        node1=input("enter node1")
+        node2=input("enter node2")
+        w=int(input("enter weight"))
+        addedge(node1,node2,w)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("invalid choice")
