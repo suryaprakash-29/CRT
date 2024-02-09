@@ -1,0 +1,48 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=self.tail=Node(0)
+    def rearrange(self,list,g,count):
+        m=g
+        if g==5:
+            while m<=count:
+                for j in range(m-1,m-g-1,-1):
+                    b=list[j]
+                    self.tail.next=Node(b)
+                    self.tail=self.tail.next
+                m=m+g
+            temp=self.head.next
+            while temp:
+                print(temp.data)
+                temp=temp.next
+        else:
+            while m<=count:
+                for j in range(m-1,m-g-1,-1):
+                    b=list[j]
+                    self.tail.next=Node(b)
+                    self.tail=self.tail.next
+                m=m+g
+            if m>count:
+                for j in range(count-1,m-g-1,-1):
+                    b=list[j]
+                    self.tail.next=Node(b)
+                    self.tail=self.tail.next
+            temp=self.head.next
+            while temp:
+                print(temp.data)
+                temp=temp.next
+            
+x=linkedlist()
+list=[]
+count=0
+while True:
+    a=int(input())
+    if a==-1:
+        break
+    list.append(a)
+    count+=1
+g=int(input())
+x.rearrange(list,g,count)
