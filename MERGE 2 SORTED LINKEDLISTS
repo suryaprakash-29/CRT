@@ -1,0 +1,47 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def merge(self,l1,l2,m,n):
+        self.head=self.tail=Node(0)
+        i=0
+        j=0
+        while l1[i] and l2[j]:
+            if l1[i]<l2[j]:
+                self.tail.next=Node(l1[i])
+                i+=1
+                self.tail=self.tail.next
+                if i==m:
+                    break
+            else:
+                self.tail.next=Node(l2[j])
+                j+=1
+                self.tail=self.tail.next
+                if j==n:
+                    break
+            
+              
+        if i<m:
+            while i<m:
+                self.tail.next=Node(l1[i])
+                self.tail=self.tail.next
+                i+=1
+        else:
+            while j<n:
+                self.tail.next=Node(l2[j])
+                self.tail=self.tail.next
+                j+=1
+        self.head=self.head.next
+        tem=self.head
+        while tem:
+            print(tem.data,end=" ")
+            tem=tem.next
+                
+                
+m=int(input())
+l1=list(map(int,input().split()))
+n=int(input())
+l2=list(map(int,input().split()))
+x=linkedlist()
+x.merge(l1,l2,m,n)
