@@ -1,0 +1,26 @@
+def valid(s):
+    a=[]
+    for i in s:
+        if i in "({[":
+            a.append(i)
+        else :
+            if len(a)==0:
+                return False
+            b=a.pop()
+            if b=="(":
+                if i!=")":
+                    return False
+            if b=="[":
+                if i!="]":
+                    return False
+            if b=="{":
+                if i!="}":
+                    return False
+    if a:
+            return False
+    return True
+s=input('enter string')
+if valid(s):
+    print("balanced")
+else:
+    print("not balanced")
