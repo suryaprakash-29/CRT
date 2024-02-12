@@ -1,0 +1,52 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self,size):
+        self.top=None
+        self.size=size
+        self.count=0
+    def push(self,data):
+        if not self.top:
+            self.top=Node(data)
+            self.count=1
+            return
+        if self.count<self.size:
+            n=Node(data)
+            n.next=self.top
+            self.top=n
+            self.count+=1
+        else:
+            print("stack is full")
+    def pop(self):
+        if self.count==0:
+            print("stack is empty")
+            return
+        print(self.top.data,"is deleted")
+        self.top=self.top.next
+        self.count-=1
+    def show(self):
+        if self.count==0:
+           print("stack is empty")
+           return
+        temp=self.top
+        while temp:
+            print(temp.data)
+            temp=temp.next
+size=int(input("enter size"))
+x=linkedlist(size)
+while True:
+    print("1.push 2.pop 3.show 4.exit")
+    ch=int(input("enter choice"))
+    if ch==1:
+        a=int(input("enter element"))
+        x.push(a)
+    elif ch==2:
+        x.pop()
+    elif ch==3:
+        x.show()
+    elif ch==4:
+        break
+    else:
+        print("invalid choice")
