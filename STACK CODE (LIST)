@@ -1,0 +1,30 @@
+
+def push(x):
+    if len(a)==n:
+        print("stack is full")
+        return
+    a.append(x)
+def pop():
+    if len(a)==0:
+        print("stack is empty")
+        return
+    print(a.pop(),"is deleted")
+def show():
+    if len(a)==0:
+        print("stack is empty")
+        return
+    for i in range(len(a)-1,-1,-1):
+        print(a[i])
+a=[]
+n=int(input("enter size"))
+while True:
+    ch=int(input("enter choice"))
+    if ch==1:
+        b=int(input("enter element"))
+        push(b)
+    elif ch==2:
+        pop()
+    elif ch==3:
+        show()
+    else:
+        break
