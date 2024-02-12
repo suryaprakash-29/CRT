@@ -1,0 +1,48 @@
+class stacks:
+    def __init__(self,m,n):
+        self.stack1=[]
+        self.stack2=[]   
+    def create(self,list1,list2):
+        for i in list1:
+            self.stack1.append(i)
+        for i in list2:
+            self.stack2.append(i)
+        print("Stack 1 Elements:")
+        for i in range(len(self.stack1)-1,-1,-1):
+            print(self.stack1[i],end=' ')
+        print()
+        print("Stack 2 Elements:")
+        for i in range(len(self.stack2)-1,-1,-1):
+            print(self.stack2[i],end=' ')
+        print()
+    def pop(self,d1,d2,m,n):
+        if d1>m:
+            print("Stack underflow. pop from stack 1 failed")
+            print("Stack 1 Elements:")
+            print()
+        else:
+            for i in range(d1):
+                self.stack1.pop()
+            print("Stack 1 Elements:")
+            for i in range(len(self.stack1)-1,-1,-1):
+                print(self.stack1[i],end=" ")
+            print()
+        if d2>n:
+            print("Stack underflow. pop from stack 2 failed")
+            print("Stack 2 Elements:")
+            print()
+        else:
+            for i in range(d2):
+                self.stack2.pop()
+            print("Stack 2 Elements:")
+            for i in range(len(self.stack2)-1,-1,-1):
+                print(self.stack2[i],end=" ")
+m=int(input())
+list1=list(map(int,input().split()))
+n=int(input())
+list2=list(map(int,input().split()))
+d1=int(input())
+d2=int(input())
+x=stacks(m,n)
+x.create(list1,list2)
+x.pop(d1,d2,m,n)
