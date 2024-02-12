@@ -1,0 +1,53 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=self.tail=Node(0)
+        self.head1=self.tail1=Node(0)
+        
+    def create(self,list):
+        for i in range(len(list)):
+            self.tail.next=Node(list[i])
+            self.tail=self.tail.next
+        j=1
+        k=len(list)
+        while j<=len(list)//2:
+            temp=self.head
+            temp1=self.head
+            c=0
+            while c<j:
+                temp=temp.next
+                c+=1
+            d=0
+            while d<k:
+                temp1=temp1.next
+                d+=1
+            self.tail1.next=Node(temp.data)
+            self.tail1.next.next=Node(temp1.data)
+            self.tail1=self.tail1.next.next
+            j+=1
+            k-=1
+        if len(list)%2!=0:
+            temp=self.head
+            l=0
+            while l<(len(list)//2)+1:
+                temp=temp.next
+                l+=1
+            self.tail1.next=Node(temp.data)
+            self.tail1=self.tail1.next
+        self.head1=self.head1.next
+        temp=self.head1
+        while temp:
+            print(temp.data)
+            temp=temp.next
+x=linkedlist()
+list=[]
+while True:
+    a=int(input())
+    if a!=-1:
+        list.append(a)
+    else:
+        break
+x.create(list)
