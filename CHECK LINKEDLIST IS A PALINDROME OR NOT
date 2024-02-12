@@ -1,0 +1,40 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=self.tail=Node(0)
+    def create(self,a):
+        for i in a:
+            self.tail.next=Node(i)
+            self.tail=self.tail.next
+        self.head=self.head.next
+        temp=self.head
+    def show(self):
+        i=len(a)
+        while i>0:
+            list=[]
+            temp=self.head
+            c=1
+            while c<i:
+                temp=temp.next
+                c+=1
+            while temp:
+                b=temp.data
+                list.append(b)
+                temp=temp.next
+            for j in list:
+                print(j)
+            c=list[::-1]
+            if c==list:
+                print("Is Palindrome")
+                print()
+            else:
+                print("Not Palindrome")
+                print()
+            i-=1
+x=linkedlist()
+a=input()
+x.create(a)
+x.show()
