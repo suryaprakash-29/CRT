@@ -1,0 +1,31 @@
+class stack:
+    def __init__(self):
+        self.s=[]
+    def push(self,data,n):
+        if len(self.s)>=n:
+            print("stack is full")
+            return 
+        self.s.append(data)
+    def sort(self):
+        s1=[]
+        while self.s:
+            temp=self.s.pop()
+            while s1 and s1[-1]>temp:
+                self.s.append(s1.pop())
+            s1.append(temp)
+            
+        for i in range(len(s1)-1,-1,-1):
+            print(s1[i])
+x=stack()
+n=int(input("enter size"))
+while True:
+    ch=int(input("enter choice"))
+    if ch==1:
+        a=int(input("enter input"))
+        x.push(a,n)
+    elif ch==2:
+        x.sort()
+    elif ch==3:
+        break
+    else:
+        print("invalid")
