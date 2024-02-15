@@ -1,0 +1,19 @@
+def insert(list,element):
+    if len(list)==0 or list[-1]<element:
+        list.append(element)
+    else:
+        temp=list.pop()
+        insert(list,element)
+        list.append(temp)
+def sort(list):
+    if len(list)!=0:
+        temp=list.pop()
+        sort(list)
+        insert(list,temp)
+def show(list):
+    for i in range(len(list)-1,-1,-1):
+        print(list[i],end=" ")
+n=int(input())
+list=list(map(int,input().split()))
+sort(list)
+show(list)
