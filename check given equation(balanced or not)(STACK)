@@ -1,0 +1,53 @@
+Given a string of balanced expression, find if it contains a redundant parenthesis or not. A set of parenthesis are redundant if same sub-expression is surrounded by unnecessary or multiple brackets. Print ‘Yes’ if redundant else ‘No’.
+
+Input Format
+
+Read expression
+
+Constraints
+
+string
+
+Output Format
+
+print "Yes" if paranthesis are valid print "No" if paranthesis are invalid
+
+Sample Input 0
+
+((a+b))
+Sample Output 0
+
+Yes
+Sample Input 1
+
+(a+(b)/c)
+Sample Output 1
+
+Yes
+Sample Input 2
+
+(a+b*(c-d))
+Sample Output 2
+
+No
+code:
+def check(s):
+    a=[]
+    for i in s:
+        if i=="(" or i in"+-*/":
+            if ((i in "*/") and (a[-1] in "*+-/")) or ((i in "+-") and (a[-1] in "*/")):
+                print("No")
+                return
+            a.append(i)
+        if i==")":
+            j=len(a)-1
+            while a[j]!="(" :
+                a.pop()
+                j-=1
+            a.pop()
+    if len(a)!=0:
+        print("No")
+    else:
+        print("Yes")
+s=input("enter input")
+check(s)
