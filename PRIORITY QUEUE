@@ -1,0 +1,33 @@
+class Node:
+    def __init__(self,data,pty):
+        self.data=data
+        self.pty=pty
+class priority_queue:
+    def __init__(self):
+        self.q=[]
+    def insert(self,node):
+        if len(self.q)==0:
+            self.q.append(node)
+            return
+        for i in range(len(self.q)):
+            if node.pty>=self.q[i].pty:
+                if i==len(self.q)-1:
+                    self.q.append(node)
+                else:
+                    continue
+            else:
+                self.q.insert(i,node)
+    def dequeue(self):
+        while len(self.q)!=0:
+            a=self.q.pop(0)
+            print(a.data,end=" ")
+pq=priority_queue() 
+while True:
+    l=list(map(int,input().split()))
+    if l[0]==-1:
+        pq.dequeue()
+        break
+    else:
+        node=Node(l[0],l[1])
+        pq.insert(node)
+        
