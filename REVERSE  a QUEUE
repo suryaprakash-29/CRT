@@ -1,0 +1,67 @@
+Write a program to display the queue in reverse order. If queue doesn't have a value print "Queue is empty".
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+Before reversing:
+1 2 3 4
+After reversing:
+4 3 2 1
+Sample Input 1
+
+1
+2
+-1
+Sample Output 1
+
+Before reversing:
+1 2
+After reversing:
+2 1
+CODE:
+class queue:
+    def __init__(self):
+        self.q=[]
+        self.s=[]
+    def enqueue(self,a):
+        self.q.append(a)
+    def show(self):
+        for i in range(len(self.q)):
+            print(self.q[i],end=" ")
+        print()
+    def stack(self):
+        while len(self.q)!=0:
+            self.s.append(self.q.pop(0))
+        while len(self.s)!=0:
+            b=self.s.pop()
+            x.enqueue(b)
+x=queue()
+while True:
+    a=int(input())
+    if a==-1:
+        print("Before reversing:")
+        x.show()
+        x.stack()
+        print("After reversing:")
+        x.show()
+        break
+    else:
+        x.enqueue(a)
